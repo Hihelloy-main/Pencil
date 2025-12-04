@@ -122,14 +122,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: paper-${{ fromJSON(steps.determine.outputs.result).pr }}
-          path: paper-server/build/libs/paper-paperclip-*-mojmap.jar
+          path: pencil-server/build/libs/paper-paperclip-*-mojmap.jar
 
       - name: Publish Artifacts
         if: fromJSON(steps.determine.outputs.result).action == 'paperclip'
         uses: PaperMC/action-pr-publishing/upload@paper
         with:
           # TODO fallback for failing javadoc
-          publishing-task: ":paper-api:publishAllPublicationsTo_githubPackages_PRsRepository publishDevBundlePublicationTo_githubPackages_PRsRepository -PpublishDevBundle"
+          publishing-task: ":pencil-api:publishAllPublicationsTo_githubPackages_PRsRepository publishDevBundlePublicationTo_githubPackages_PRsRepository -PpublishDevBundle"
   event_file:
     name: "Event File"
     # Only run on PRs if the source branch is on someone else's repo
