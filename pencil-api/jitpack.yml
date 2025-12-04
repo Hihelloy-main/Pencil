@@ -1,16 +1,18 @@
-# jitpack.yml
 jdk:
   - openjdk-21
 
 before_install:
-  # Make sure SDKMan installs and uses Java 21
   - sdk install java 21.0.2-open
   - sdk use java 21.0.2-open
 
 install:
-  # Clean any previous build artifacts
   - ./gradlew clean --no-daemon
 
 script:
-  # Build the project with the correct Java version
-  - ./gradlew assemble publishToMavenLocal --no-daemon
+  # Build the Paperclip jars
+  - ./gradlew createMojmapPaperclipJar createReobfPaperclipJar --no-daemon
+
+# Explicitly tell JitPack where to find the jars
+artifacts:
+  - pencil-server/build/libs/*.jar
+  - pencil-api/build/libs/*.jar

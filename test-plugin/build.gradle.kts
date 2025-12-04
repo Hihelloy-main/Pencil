@@ -6,7 +6,7 @@ version = "1.0.0-SNAPSHOT"
     }
 
 dependencies {
-    compileOnly("com.github.Hihelloy-main.Pencil:pencil-api:1.21.11-pre5")
+    compileOnly("com.github.Hihelloy-main.Pencil:pencil-api:a54db99745")
 }
 
 tasks.processResources {
