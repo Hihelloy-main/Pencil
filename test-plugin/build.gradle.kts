@@ -1,7 +1,12 @@
 version = "1.0.0-SNAPSHOT"
 
+    repositories {
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+
 dependencies {
-    compileOnly(project(":pencil-api"))
+    compileOnly("com.github.Hihelloy-main.Pencil:pencil-api:1.21.11-pre5")
 }
 
 tasks.processResources {
