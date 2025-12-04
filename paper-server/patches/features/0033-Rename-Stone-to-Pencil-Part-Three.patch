@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Hihelloy-main <Hihelloylovesu@gmail.com>
+Date: Wed, 3 Dec 2025 19:15:12 -0800
+Subject: [PATCH] Rename Stone to Pencil Part Three
+
+
+diff --git a/net/minecraft/server/Main.java b/net/minecraft/server/Main.java
+index 437a1a606707776d6b2cd5dddfd64402c18978ad..224b361e8ce9ca6160059cc0f8a12742990e99e4 100644
+--- a/net/minecraft/server/Main.java
++++ b/net/minecraft/server/Main.java
+@@ -68,7 +68,7 @@ public class Main {
+         io.papermc.paper.util.LogManagerShutdownThread.hook(); // Paper - Improved watchdog support
+         SharedConstants.tryDetectVersion();
+         // Pencil start
+-        System.out.println("Heyo, this is Hihelloy owner of stone.");
++        System.out.println("Heyo, this is Hihelloy owner of pencil.");
+         // Pencil end
+         /* CraftBukkit start - Replace everything
+         OptionParser optionParser = new OptionParser();
