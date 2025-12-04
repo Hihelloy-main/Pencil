@@ -669,7 +669,7 @@ public class CraftPlayer extends CraftHumanEntity implements Player, PluginMessa
         }
     }
 
-    // Stone Start
+    // Pencil start
     @Override
     public void kick(@Nullable final String string, PlayerKickEvent.Cause cause) {
         AsyncCatcher.catchOp("player kick");
@@ -678,7 +678,7 @@ public class CraftPlayer extends CraftHumanEntity implements Player, PluginMessa
             conn.disconnect(string == null ? "" : string, cause);
         }
     }
-    // Stone end
+    // Pencil end
 
     @Override
     public <T> T getClientOption(com.destroystokyo.paper.ClientOption<T> type) {

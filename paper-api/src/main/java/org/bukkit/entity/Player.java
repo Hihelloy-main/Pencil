@@ -364,7 +364,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      */
     void kick(final net.kyori.adventure.text.@Nullable Component message, org.bukkit.event.player.PlayerKickEvent.Cause cause);
 
-    // Stone start - back to the basics
+    // Pencil start - back to the basics
 
     /**
      * Kicks player with custom kick message and cause (no need for component use)
@@ -377,7 +377,7 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
     default void kick(@Nullable String string) {
         this.kick(string == null ? "" : string, PlayerKickEvent.Cause.PLUGIN);
     }
-    // Stone end
+    // Pencil end
 
     /**
      * Adds this user to the {@link ProfileBanList}. If a previous ban exists, this will
