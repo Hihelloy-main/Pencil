@@ -47,6 +47,7 @@ import org.bukkit.conversations.Conversable;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDropItemEvent;
 import org.bukkit.event.player.PlayerExpCooldownChangeEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerResourcePackStatusEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
@@ -362,6 +363,21 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
      * @param cause kick cause
      */
     void kick(final net.kyori.adventure.text.@Nullable Component message, org.bukkit.event.player.PlayerKickEvent.Cause cause);
+
+    // Stone start - back to the basics
+
+    /**
+     * Kicks player with custom kick message and cause (no need for component use)
+     *
+     * @param message kick message
+     * @param cause kick cause
+     */
+    void kick(final String message, PlayerKickEvent.Cause cause);
+
+    default void kick(@Nullable String string) {
+        this.kick(string == null ? "" : string, PlayerKickEvent.Cause.PLUGIN);
+    }
+    // Stone end
 
     /**
      * Adds this user to the {@link ProfileBanList}. If a previous ban exists, this will

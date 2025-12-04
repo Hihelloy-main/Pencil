@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Hihelloy-main <Hihelloylovesu@gmail.com>
+Date: Wed, 3 Dec 2025 19:00:32 -0800
+Subject: [PATCH] Change Not Secure to null
+
+
+diff --git a/net/minecraft/server/players/PlayerList.java b/net/minecraft/server/players/PlayerList.java
+index 9f86d1fc4ea4c6987fa207644573565aea7edead..a31d044c64ad27fe8458dd4df0eaa4e58e0feca0 100644
+--- a/net/minecraft/server/players/PlayerList.java
++++ b/net/minecraft/server/players/PlayerList.java
+@@ -1128,7 +1128,7 @@ public abstract class PlayerList {
+     public void broadcastChatMessage(PlayerChatMessage message, Predicate<ServerPlayer> shouldFilterMessageTo, @Nullable ServerPlayer sender, ChatType.Bound boundChatType, @Nullable Function<net.kyori.adventure.audience.Audience, Component> unsignedFunction) {
+         // Paper end
+         boolean flag = this.verifyChatTrusted(message);
+-        this.server.logChatMessage((unsignedFunction == null ? message.decoratedContent() : unsignedFunction.apply(this.server.console)), boundChatType, flag ? null : "Not Secure"); // Paper
++        this.server.logChatMessage((unsignedFunction == null ? message.decoratedContent() : unsignedFunction.apply(this.server.console)), boundChatType, flag ? null : null); // Stone - remove "Not Secure" // Paper
+         OutgoingChatMessage outgoingChatMessage = OutgoingChatMessage.create(message);
+         boolean flag1 = false;
+ 

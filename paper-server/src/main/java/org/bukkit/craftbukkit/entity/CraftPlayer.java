@@ -206,6 +206,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerExpCooldownChangeEvent;
 import org.bukkit.event.player.PlayerHideEntityEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerShowEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.InventoryView.Property;
@@ -221,6 +222,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scoreboard.Scoreboard;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
+import org.spigotmc.AsyncCatcher;
 
 @DelegateDeserialization(CraftOfflinePlayer.class)
 public class CraftPlayer extends CraftHumanEntity implements Player, PluginMessageBridgeImpl {
@@ -666,6 +668,17 @@ public class CraftPlayer extends CraftHumanEntity implements Player, PluginMessa
             connection.disconnect(message == null ? net.kyori.adventure.text.Component.empty() : message, cause);
         }
     }
+
+    // Stone Start
+    @Override
+    public void kick(@Nullable final String string, PlayerKickEvent.Cause cause) {
+        AsyncCatcher.catchOp("player kick");
+        final ServerGamePacketListenerImpl conn = this.getHandle().connection;
+        if (conn != null) {
+            conn.disconnect(string == null ? "" : string, cause);
+        }
+    }
+    // Stone end
 
     @Override
     public <T> T getClientOption(com.destroystokyo.paper.ClientOption<T> type) {
